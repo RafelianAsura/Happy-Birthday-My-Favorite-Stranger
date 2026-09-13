@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, My Favorite Stranger</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <audio id="bg-music">
+        <source src="assets/lagu/lagu.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="petals" id="petals-container"></div>
+
+    <div id="cover-screen" onclick="showPopup()">
+        <div class="gift-box" id="gift-icon">🤍</div a little birthday gift from me for you>
+        <div class="tap-text" id="tap-text">a little birthday gift from me for you</div>
+    </div>
+
+    <div id="popup-overlay" class="hidden">
+    <div id="popup-box">
+        <h3 class="serif">beneran mau buka nih?</h3>
+        <div class="popup-buttons">
+            <button id="btn-yes" class="popup-btn" onclick="confirmOpenGift()">iya boleh, penasaran 🤍</button>
+            <button id="btn-no" class="popup-btn">skip aja deh 😜</button>
+        </div>
+    </div>
+</div>
+
+    <div id="main-content">
+        
+        <div class="music-widget">
+            <div class="music-top">
+                <img id="player-cover" src="assets/cover/cover1.jpg" alt="Album Art">
+                <div class="music-info">
+                    <span class="title" id="player-title">Hanya Untuk-Mu</span>
+                    <span class="artist" id="player-artist">Ten2Five</span>
+                </div>
+            </div>
+
+            <div class="progress-wrapper">
+    <input type="range" id="seek-bar" value="0" min="0" max="100" step="0.1">
+    <div class="time-display">
+        <span id="current-time">0:00</span>
+        <span id="duration">0:00</span>
+    </div>
+</div>
+
+            <div class="controls">
+                <span onclick="prevSong()">⏮</span>
+                <span id="play-pause-btn" onclick="toggleMusic()">⏸</span>
+                <span onclick="nextSong()">⏭</span>
+            </div>
+        </div>
+
+        <section class="hero-section">
+            <p class="subtitle">sebuah ucapan buat someone I used to know</p>
+            <h1 class="title-main serif">Happy Birthday<br>Raina</h1>
+            <img src="assets/foto/fotoawal.jpg" alt="Pemegang Hatiku" style="width: 160px; height: 160px; object-fit: cover; border-radius: 50%; border: 3px solid rgba(255, 255, 255, 0.2); box-shadow: 0 0 25px rgba(229,115,115,0.4); margin-bottom: 25px;">
+            <p class="text-body" style="margin-top:10px;">Were not as close as we used to be, but that doesn't erase the good memories we had.</p>
+            <div style="font-size: 24px; margin-top:20px;">🌸</div>
+            <button class="next-btn" onclick="nextSection(this)">🤍</button>
+        </section>
+
+        <section>
+            <p class="subtitle">our melodies</p>
+            <h2 class="title-sub serif">Lagu Yang Mengingatkanku Pada Dirimu</h2>
+            <p class="subtitle">klik cover art untuk ganti lagu</p>
+            <div class="playlist-grid">
+
+                <div class="photo-item" style="cursor: pointer;" onclick="changeSong('assets/lagu/lagu1.mp3', 'Hanya Untuk-Mu', 'Ten2Five', 'assets/cover/cover1.jpg')">
+                    <img src="assets/cover/cover1.jpg" alt="Cover Hanya Untuk-Mu" style="filter: none;">
+                    <p class="photo-caption" style="font-size: 16px; margin-top: 10px; color: #fff; font-family: 'Montserrat', sans-serif;">Hanya Untuk-Mu</p>
+                    <p style="font-size: 11px; color: var(--text-muted);">Ten2Five</p>
+                </div>
+
+                <div class="photo-item" style="cursor: pointer;" onclick="changeSong('assets/lagu/lagu2.mp3', 'Magnolia', 'Magnolia Celebration', 'assets/cover/cover2.jpg')">
+                    <img src="assets/cover/cover2.jpg" alt="Cover Magnolia" style="filter: none;">
+                    <p class="photo-caption" style="font-size: 16px; margin-top: 10px; color: #fff; font-family: 'Montserrat', sans-serif;">Magnolia</p>
+                    <p style="font-size: 11px; color: var(--text-muted);">Magnolia Celebration</p>
+                </div>
+
+                <div class="photo-item" style="cursor: pointer;" onclick="changeSong('assets/lagu/lagu3.mp3', 'The Art of Chasing You', 'Magnolia Celebration', 'assets/cover/cover3.jpg')">
+                    <img src="assets/cover/cover3.jpg" alt="Cover The Art of Chasing You" style="filter: none;">
+                    <p class="photo-caption" style="font-size: 16px; margin-top: 10px; color: #fff; font-family: 'Montserrat', sans-serif;">The Art of Chasing You</p>
+                    <p style="font-size: 11px; color: var(--text-muted);">Magnolia Celebration</p>
+                </div>
+                
+                <div class="photo-item" style="cursor: pointer;" onclick="changeSong('assets/lagu/lagu4.mp3', 'Keabadian', 'Reza Artamevia', 'assets/cover/cover4.jpg')">
+                    <img src="assets/cover/cover4.jpg" alt="Cover Keabadian" style="filter: none;">
+                    <p class="photo-caption" style="font-size: 16px; margin-top: 10px; color: #fff; font-family: 'Montserrat', sans-serif;">Keabadian</p>
+                    <p style="font-size: 11px; color: var(--text-muted);">Reza Artamevia</p>
+                </div>
+
+                <div class="photo-item" style="cursor: pointer;" onclick="changeSong('assets/lagu/lagu5.mp3', 'Kangen', 'Dewa19', 'assets/cover/cover5.jpg')">
+                    <img src="assets/cover/cover5.jpg" alt="Cover Kangen" style="filter: none;">
+                    <p class="photo-caption" style="font-size: 16px; margin-top: 10px; color: #fff; font-family: 'Montserrat', sans-serif;">Kangen</p>
+                    <p style="font-size: 11px; color: var(--text-muted);">Dewa19</p>
+                </div>
+
+            </div>
+            <button class="next-btn" onclick="nextSection(this)">🤍</button>
+        </section>
+
+        <section>
+            <p class="subtitle">🌸 from my heart 🌸</p>
+            <h2 class="title-sub serif">You Were My Favorite Almost</h2>
+            <p class="text-body">
+                People come and go, but some people stay in your heart after they leave your life.<br><br>
+                Were not together anymore, But sometimes i think — maybe another version of us still tg. Who knows<br><br>
+                But today its not about that. Today its all about you, and gw cuma mau bilang: semoga bahagia.
+            </p>
+            <p class="serif" style="margin-top: 40px; font-style: italic; font-size: 24px; color: var(--text-muted);">
+                - someone who used to be your favorite person, and maybe still hopes to be -
+            </p>
+            <button class="next-btn" onclick="nextSection(this)">🤍</button>
+        </section>
+
+        <section>
+            <p class="subtitle">theres a lot i want to talk about but here are some</p>
+            <h2 class="title-sub serif">Little Things I Remember About You</h2>
+            <div class="reasons-grid">
+            <div class="card"><h3 class="serif">Novel</h3><p>Makasih udah pernah ngenalin gw ke novel, Novel kayak hal pertama yang gw notice di lu sebelum kita kenal.</p></div>
+
+<div class="card"><h3 class="serif">Lily</h3><p>U sebenernya ga pernah mention u suka lily, tapi pas kita lagi distance i did some research wkwk, thats why bunga pertama yang aku kasih itu bunga lily.</p></div>
+
+<div class="card"><h3 class="serif">Your eyes</h3><p>I may have bad memory but ill never forget the look of those pretty brown eyes</p></div>
+
+<div class="card"><h3 class="serif">Warna Favorit</h3><p>ya walaupun gw gapernah bener bener tau warna favorite lu apa ya, gw selalu ngeliat lu kalo liat warna coklat, yang gw tau lu suka warna merah, pink ya gitu deh.</p></div>
+
+<div class="card"><h3 class="serif">Your Scent</h3><p>Just so you know, ill remember the scent of your perfume and if i ever smell it somewhere else ill always think of you</p></div>
+
+<div class="card"><h3 class="serif">Cimol Bojot</h3><p>Yea, i guess every one of your friend knows you like this food.</p></div>
+            </div>
+            <button class="next-btn" onclick="nextSection(this)">🤍</button>
+        </section>
+
+        <section>
+            <p class="subtitle">TIME STOPPED BEHIND THE LENS, BUT THE FEELING NEVER FADED.</p>
+            <h2 class="title-sub serif">Some Things<br>Don't Fade</h2>
+            <div class="photo-grid">
+                <div class="photo-item"><img src="assets/foto/foto1.jpg" alt="you"><p class="photo-caption">you</p></div>
+                <div class="photo-item"><img src="assets/foto/foto2.jpg" alt="used to"><p class="photo-caption">used to</p></div>
+                <div class="photo-item"><img src="assets/foto/foto3.jpg" alt="always"><p class="photo-caption">always</p></div>
+                <div class="photo-item"><img src="assets/foto/foto4.jpg" alt="had a way"><p class="photo-caption">had a way</p></div>
+                <div class="photo-item"><img src="assets/foto/foto5.jpg" alt="of making"><p class="photo-caption">of making</p></div>
+                <div class="photo-item"><img src="assets/foto/foto6.jpg" alt="ordinary days"><p class="photo-caption">ordinary days</p></div>
+                <div class="photo-item"><img src="assets/foto/foto7.jpg" alt="feel like"><p class="photo-caption">feel like</p></div>
+                <div class="photo-item"><img src="assets/foto/foto8.jpg" alt="something 🤍"><p class="photo-caption">something 🤍</p></div>
+            </div>
+            <button class="next-btn" onclick="nextSection(this)">🤍</button>
+        </section>
+
+        <section>
+            <p class="subtitle">OUR MEMORIES</p>
+            <h2 class="title-sub serif">Memories That Last Forever</h2>
+            <div class="video-grid" style="margin-top: 30px;">
+                <div class="video-container" style="margin: 0; max-width: 100%;">
+                    <video controls controlsList="nodownload" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover;">
+                        <source src="assets/video/video2.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-container" style="margin: 0; max-width: 100%;">
+                    <video controls controlsList="nodownload" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover;">
+                        <source src="assets/video/video3.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-container" style="margin: 0; max-width: 100%;">
+                    <video controls controlsList="nodownload" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover;">
+                        <source src="assets/video/video4.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-container" style="margin: 0; max-width: 100%;">
+                    <img src="assets/foto/fotospec.jpg" alt="stickynote kuning di buku janji" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block;">
+                </div>
+            </div>
+            <p class="text-body" style="font-size: 13px; margin-top: 20px;">These moments are long gone, but they're still in my head — not always wishing to go back, but glad I got to be there.</p>
+            <button class="next-btn" onclick="nextSection(this)">🤍</button>
+        </section>
+
+        <section>
+            <p class="subtitle">A PRAYER FOR YOU</p>
+            <h2 class="title-sub serif">Doa Terbaikku</h2>
+            <div style="background: rgba(255, 255, 255, 0.03); border-left: 3px solid var(--accent); padding: 30px 40px; margin-top: 20px; max-width: 600px; border-radius: 0 15px 15px 0; box-shadow: 5px 5px 20px rgba(0,0,0,0.2);">
+                <p class="serif" style="font-size: 24px; font-style: italic; line-height: 1.8; color: #fff;">
+                    "Semoga di birthday kamu yang ke-16 ini, all the plan yang kamu plan bisa kelar satu-satu. I hope you're doing good in your academic, so you can get into Unpad, universitas yang kamu incer itu. Semoga kamu selalu dikelilingi sama orang-orang yang beneran show up buat kamu. And even though kita sekarang udah jauh, semoga kamu masih ngerasa ada yang beneran care dari sini."
+                </p>
+            </div>
+            <p class="text-body" style="font-size: 14px; margin-top: 25px;">Happy birthday, Raina. Hope you're doing well, wherever and with whoever you are right now.</p>
+            <button class="next-btn" onclick="nextSection(this)">🤍</button>
+        </section>
+
+        <section>
+            <div style="font-size: 28px; letter-spacing: 10px; margin-bottom: 20px;">🌸🌺🌹</div>
+            <p class="subtitle">always & forever</p>
+            <h1 class="title-sub serif">Some People Just Stay</h1>
+            <p class="text-body" style="font-size: 14px; max-width: 600px;">
+                We might not be anything to each other anymore. But if someday the story changes again, aku nggak akan kaget kalau ternyata aku masih di sini. For now: semoga apapun yang kamu kejar, kamu dapetin.
+            </p>
+            <p class="serif" style="margin-top: 50px; font-style: italic; color: var(--text-muted); font-size:18px;">
+                made from memory, not quite from hope, not quite without it either 🤍
+            </p>
+        </section>
+        
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
